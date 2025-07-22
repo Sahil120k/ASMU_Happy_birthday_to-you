@@ -1,0 +1,477 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    font-family: 'Dancing Script', cursive;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.ai-container {
+    min-height: 100vh;
+    position: relative;
+    padding: 20px;
+}
+
+/* Floating AI Assistant */
+.floating-ai-assistant {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.ai-avatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    padding: 3px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ai-avatar:hover {
+    transform: scale(1.1);
+}
+
+.ai-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ai-status-dot {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: #4CAF50;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.ai-chat-bubble {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px 20px 5px 20px;
+    padding: 15px 20px;
+    max-width: 250px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    animation: bubbleIn 0.5s ease-out;
+}
+
+@keyframes bubbleIn {
+    from { opacity: 0; transform: scale(0.8) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.ai-chat-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(255, 255, 255, 0.95);
+}
+
+.ai-message {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.typing-indicator {
+    display: none;
+    align-items: center;
+    gap: 3px;
+}
+
+.typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background: #667eea;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+/* Main Content */
+.ai-main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ai-header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.ai-header h1 {
+    font-size: 3rem;
+    color: #e91e63;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Great Vibes', cursive;
+}
+
+.ai-header p {
+    font-size: 1.3rem;
+    color: #666;
+    font-family: 'Pacifico', cursive;
+}
+
+/* Birthday Counter */
+.birthday-counter {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.counter-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px);
+}
+
+.counter-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e91e63;
+    font-family: 'Pacifico', cursive;
+}
+
+.counter-label {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* Wishes Section */
+.ai-wishes-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px 0;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.ai-wishes-section h2 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.wishes-container {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.wish-card {
+    background: linear-gradient(45deg, #ff9a9e, #fecfef);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    animation: wishIn 0.5s ease-out;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+@keyframes wishIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.generate-wish-btn {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.generate-wish-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Beautiful Thoughts */
+.beautiful-thoughts {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px 0;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.beautiful-thoughts h2 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.thought-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+
+.thought-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.thought-author {
+    font-size: 1.1rem;
+    font-family: 'Pacifico', cursive;
+    opacity: 0.9;
+}
+
+/* GIF Section */
+.gif-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px 0;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.gif-section h2 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.gif-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.celebration-gif {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.celebration-gif:hover {
+    transform: scale(1.05);
+}
+
+/* Chat Section */
+.ai-interactive {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px 0;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.ai-interactive h2 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ai-msg, .user-msg {
+    margin: 15px 0;
+    padding: 12px 18px;
+    border-radius: 15px;
+    max-width: 80%;
+    animation: messageIn 0.3s ease-out;
+}
+
+@keyframes messageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-msg {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.user-msg {
+    background: linear-gradient(45deg, #ff9a9e, #fecfef);
+    color: white;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+.chat-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+#userInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e91e63;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: 'Dancing Script', cursive;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#userInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.send-btn {
+    background: linear-gradient(45deg, #e91e63, #ff6b9d);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 25px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Navigation */
+.navigation-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.nav-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    margin: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-decoration: none;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ai-header h1 { font-size: 2rem; }
+    .ai-header p { font-size: 1.1rem; }
+    .counter-number { font-size: 2rem; }
+    .floating-ai-assistant { bottom: 20px; right: 20px; }
+    .ai-avatar { width: 60px; height: 60px; }
+    .ai-chat-bubble { max-width: 200px; }
+    .gif-gallery { grid-template-columns: 1fr; }
+}

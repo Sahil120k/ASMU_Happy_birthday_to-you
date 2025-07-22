@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI Assistant - Happy 22nd Birthday Asmita! 🎉</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/ai-assistant.css">
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet'>
+</head>
+<body>
+    <div class="ai-container">
+        <div class="floating-ai-assistant" id="aiAssistant">
+            <div class="ai-avatar">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=150&h=150&fit=crop&crop=face" alt="AI Assistant" />
+                <div class="ai-status-dot"></div>
+            </div>
+            <div class="ai-chat-bubble" id="chatBubble">
+                <div class="ai-message" id="aiMessage">
+                    Happy 22nd Birthday, beautiful Asmita! 🎉✨
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-main-content">
+            <div class="ai-header">
+                <h1>🤖 AI Birthday Assistant for Asmita Kumari 🎂</h1>
+                <p>Your personal AI companion celebrating your special 22nd birthday!</p>
+            </div>
+
+            <div class="birthday-counter">
+                <div class="counter-item">
+                    <span class="counter-number">22</span>
+                    <span class="counter-label">Years Amazing</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="daysAlive">8030</span>
+                    <span class="counter-label">Days of Awesomeness</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="hoursAlive">192720</span>
+                    <span class="counter-label">Hours of Joy</span>
+                </div>
+            </div>
+
+            <div class="ai-wishes-section">
+                <h2>🌟 AI Generated Birthday Wishes 🌟</h2>
+                <div class="wishes-container" id="wishesContainer">
+                    <!-- Wishes will be generated here -->
+                </div>
+                <button class="generate-wish-btn" onclick="generateNewWish()">
+                    ✨ Generate New Wish ✨
+                </button>
+            </div>
+
+            <div class="beautiful-thoughts">
+                <h2>💭 Beautiful Thoughts for You 💭</h2>
+                <div class="thought-card">
+                    <div class="thought-text">
+                        "At 22, you're like a beautiful symphony - each year adding a new note of wisdom, joy, and grace. Your journey has been extraordinary, and the best chapters are yet to be written. You radiate kindness like sunshine and inspire everyone around you with your amazing spirit."
+                    </div>
+                    <div class="thought-author">- Your AI Friend 💖</div>
+                </div>
+            </div>
+
+            <div class="gif-section">
+                <h2>🎈 Celebration GIFs 🎈</h2>
+                <div class="gif-gallery">
+                    <img src="https://media.giphy.com/media/feio2yIUMtdqWjRiaF/giphy.gif" alt="Happy Birthday" class="celebration-gif">
+                    <img src="https://media.giphy.com/media/g5R9dok94mrIvplmZd/giphy.gif" alt="Birthday Cake" class="celebration-gif">
+                    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Birthday Balloons" class="celebration-gif">
+                </div>
+            </div>
+
+            <div class="ai-interactive">
+                <h2>🗨️ Chat with AI Assistant 🗨️</h2>
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="ai-msg">
+                            Hello Asmita! I'm your birthday AI assistant. Ask me anything or let me generate more birthday wishes for you! 🎉
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                        <button onclick="sendMessage()" class="send-btn">Send 💕</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-section">
+                <a href="../../index.html" class="nav-btn">🏠 Back to Main Party</a>
+                <a href="surprise.html" class="nav-btn">🎊 Surprise Page</a>
+                <a href="privacy.html" class="nav-btn">📜 Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/ai-assistant.js"></script>
+</body>
+</html>
